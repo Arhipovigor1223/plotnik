@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Тест: Документообіг</title>
+<style>
+body{font-family:Arial, sans-serif;background:#f4f6f9;margin:0;padding:20px}
+.container{max-width:900px;margin:auto;background:white;padding:25px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+h1{text-align:center}
+.question{margin-bottom:20px;padding:15px;border-bottom:1px solid #ddd}
+button{padding:12px 20px;font-size:16px;border:none;border-radius:8px;background:#2b7cff;color:white;cursor:pointer}
+#result{font-size:20px;margin-top:20px;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Тест з теми "Документообіг" </h1>
+<p style="text-align:center;font-style:italic;">Автор: Плотник Владислава</p>
+<form id="quiz">
+
+<div class="question">
+<p>1. Що таке документообіг?</p>
+<label><input type="radio" name="q1" value="0"> Процес зберігання документів</label><br>
+<label><input type="radio" name="q1" value="1"> Рух документів від створення до завершення виконання</label><br>
+<label><input type="radio" name="q1" value="0"> Архівування документів</label><br>
+<label><input type="radio" name="q1" value="0"> Знищення документів</label>
+</div>
+
+<div class="question">
+<p>2. Який документ використовується для офіційного листування?</p>
+<label><input type="radio" name="q2" value="1"> Службовий лист</label><br>
+<label><input type="radio" name="q2" value="0"> Щоденник</label><br>
+<label><input type="radio" name="q2" value="0"> Плакат</label><br>
+<label><input type="radio" name="q2" value="0"> Чернетка</label>
+</div>
+
+<div class="question">
+<p>3. Хто зазвичай відповідає за реєстрацію документів?</p>
+<label><input type="radio" name="q3" value="0"> Директор</label><br>
+<label><input type="radio" name="q3" value="1"> Секретар</label><br>
+<label><input type="radio" name="q3" value="0"> Водій</label><br>
+<label><input type="radio" name="q3" value="0"> Охоронець</label>
+</div>
+
+<div class="question">
+<p>4. Який етап є першим у роботі з документом?</p>
+<label><input type="radio" name="q4" value="1"> Створення документа</label><br>
+<label><input type="radio" name="q4" value="0"> Архівування</label><br>
+<label><input type="radio" name="q4" value="0"> Знищення</label><br>
+<label><input type="radio" name="q4" value="0"> Перевірка архіву</label>
+</div>
+
+<div class="question">
+<p>5. Де зберігаються старі документи?</p>
+<label><input type="radio" name="q5" value="0"> У кабінеті директора</label><br>
+<label><input type="radio" name="q5" value="1"> В архіві</label><br>
+<label><input type="radio" name="q5" value="0"> У коридорі</label><br>
+<label><input type="radio" name="q5" value="0"> У комп'ютерній миші</label>
+</div>
+
+<div class="question">
+<p>6. Які види документів існують? (кілька відповідей)</p>
+<label><input type="checkbox" name="q6" value="1"> Організаційні</label><br>
+<label><input type="checkbox" name="q6" value="1"> Розпорядчі</label><br>
+<label><input type="checkbox" name="q6" value="0"> Кулінарні</label><br>
+<label><input type="checkbox" name="q6" value="1"> Інформаційні</label>
+</div>
+
+<div class="question">
+<p>7. Що може входити до реквізитів документа? (кілька відповідей)</p>
+<label><input type="checkbox" name="q7" value="1"> Дата</label><br>
+<label><input type="checkbox" name="q7" value="1"> Підпис</label><br>
+<label><input type="checkbox" name="q7" value="0"> Колір паперу</label><br>
+<label><input type="checkbox" name="q7" value="1"> Назва документа</label>
+</div>
+
+<div class="question">
+<p>8. Які операції належать до роботи з документами? (кілька відповідей)</p>
+<label><input type="checkbox" name="q8" value="1"> Реєстрація</label><br>
+<label><input type="checkbox" name="q8" value="1"> Зберігання</label><br>
+<label><input type="checkbox" name="q8" value="0"> Приготування їжі</label><br>
+<label><input type="checkbox" name="q8" value="1"> Передача</label>
+</div>
+
+<div class="question">
+<p>9. Електронний документообіг включає: (кілька відповідей)</p>
+<label><input type="checkbox" name="q9" value="1"> Електронні листи</label><br>
+<label><input type="checkbox" name="q9" value="1"> Онлайн-архів</label><br>
+<label><input type="checkbox" name="q9" value="0"> Паперові зошити</label><br>
+<label><input type="checkbox" name="q9" value="1"> Електронний підпис</label>
+</div>
+
+<div class="question">
+<p>10. До етапів документообігу належать: (кілька відповідей)</p>
+<label><input type="checkbox" name="q10" value="1"> Створення</label><br>
+<label><input type="checkbox" name="q10" value="1"> Реєстрація</label><br>
+<label><input type="checkbox" name="q10" value="1"> Виконання</label><br>
+<label><input type="checkbox" name="q10" value="0"> Малювання</label>
+</div>
+
+<button type="button" onclick="checkQuiz()">Перевірити результат</button>
+
+</form>
+
+<div id="result"></div>
+</div>
+
+<script>
+function checkQuiz(){
+let score = 0;
+const form = document.getElementById('quiz');
+const data = new FormData(form);
+for (let value of data.values()){
+score += Number(value);
+}
+document.getElementById('result').innerText = "Ваш результат: " + score + " балів";
+}
+</script>
+
+</body>
+</html>
